@@ -1,5 +1,5 @@
 /* This is useful for tomcat applications server.xy/applicationname/home */
-applicationname = ".";
+var applicationname = ".";
 
 /** Asynchrone Javascript Request - Aufruf der ServerMethode
  * @Param method anfordernde HTTP-Methode, wie GET und POST
