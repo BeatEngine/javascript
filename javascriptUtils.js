@@ -91,7 +91,7 @@ function reloadContainerByResponse(dataResponse, containerId)
 
                 }
             }
-            hideLoadingProgressSpinner();
+            
         }
         else
         {
@@ -161,7 +161,7 @@ function executeFormByMemberEvent( that = null, callBackEvent = null)
             {
                 url = url.substr(1);
             }
-            console.log(url);
+            
 
             var inputs = parent.getElementsByTagName("input");
             var texts = parent.getElementsByTagName("textarea");
