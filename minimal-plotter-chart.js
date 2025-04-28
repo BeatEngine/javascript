@@ -5,9 +5,10 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
   {
     throw exception("Length of values x must be equal to length of values y");
   }
+  
   const canvas = document.getElementById("bio");
   const ctx = canvas.getContext("2d");
-
+  
   let minY = 2147483646;
   let maxY = -2147483646;
   /*GET MIN and MAX*/
@@ -46,7 +47,14 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
   let height = canvas.height;
   let width = canvas.width;
 
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, width, height);
+  ctx.fillStyle = "#000000";
+
   /*DRAW THE LINES BETWEEN THE POINTS*/
+  const cs3 = ctx.strokeStyle;
+  ctx.strokeStyle = "#000000";
+
   ctx.beginPath();
   ctx.moveTo(20, height);
   ctx.lineTo(20, 0);
@@ -56,6 +64,7 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
   ctx.moveTo(1, height-20);
   ctx.lineTo(width, height-20);
   ctx.stroke();
+  ctx.strokeStyle = cs3;
 
   let lastX = -1.23456;
   let lastY = -1.23456;
@@ -98,11 +107,12 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
         ctx.textAlign = "left";
         ctx.fillText((""+vv).substring(0, 6), 0, 0);
         ctx.restore();
-     }
+      }
       ctx.strokeStyle = cs;
 
       if(lastX != -1.23456 || lastY != -1.23456)
       {
+        
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(posX, posY);
@@ -110,6 +120,9 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
         ctx.font = "8px";
         if(posY < height)
         {
+          const cs2 = ctx.strokeStyle;
+          ctx.strokeStyle = "#000000";
+          
           ctx.beginPath();
           if(posX+1 > width)
           {
@@ -122,6 +135,7 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
             ctx.lineTo(posX, height-25);
           }
           ctx.stroke();
+          
           ctx.save();
           if(posX-9*l+23 > width)
           {
@@ -138,6 +152,7 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
             ctx.fillText((""+vh).substring(0, 10), 0, 0);
           }
           ctx.restore();
+          ctx.strokeStyle = cs2;
         }
 
       }
