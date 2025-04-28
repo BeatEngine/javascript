@@ -66,10 +66,11 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
   ctx.stroke();
   ctx.strokeStyle = cs3;
 
-  let lastX = -1.23456;
-  let lastY = -1.23456;
+  
   for(var l = 0; l < valuesV2d.length; l++)
   {
+    let lastX = -1.23456;
+    let lastY = -1.23456;
     if(clolrs2d)
     {
       ctx.strokeStyle = clolrs2d[l];
@@ -112,7 +113,6 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
 
       if(lastX != -1.23456 || lastY != -1.23456)
       {
-        
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(posX, posY);
@@ -154,7 +154,7 @@ function drawChart(valuesH, valuesV2d, clolrs2d = null)
           ctx.restore();
           ctx.strokeStyle = cs2;
         }
-
+        
       }
       lastX = posX;
       lastY = posY;
